@@ -33,8 +33,9 @@ class MainTabBarViewController: UITabBarController {
                 
         UITabBar.appearance().tintColor = .systemGreen
         UITabBar.appearance().backgroundColor = .systemBackground
+        UINavigationBar.appearance().tintColor = .systemGreen
         
-        setViewControllers([favorites, search], animated: true)
+        setViewControllers([search, favorites], animated: true)
     }
 
 }
