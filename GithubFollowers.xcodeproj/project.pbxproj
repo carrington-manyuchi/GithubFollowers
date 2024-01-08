@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8CC526172B4BF13D00D9CC43 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC526162B4BF13C00D9CC43 /* ErrorMessage.swift */; };
 		8CD7A2FE2B456FF200233CCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD7A2FD2B456FF200233CCC /* AppDelegate.swift */; };
 		8CD7A3002B456FF200233CCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD7A2FF2B456FF200233CCC /* SceneDelegate.swift */; };
 		8CD7A3022B456FF200233CCC /* FollowersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD7A3012B456FF200233CCC /* FollowersListViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8CC526162B4BF13C00D9CC43 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		8CD7A2FA2B456FF200233CCC /* GithubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CD7A2FD2B456FF200233CCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CD7A2FF2B456FF200233CCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8CC526152B4BF12C00D9CC43 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8CC526162B4BF13C00D9CC43 /* ErrorMessage.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		8CD7A2F12B456FF200233CCC = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +90,7 @@
 		8CD7A2FC2B456FF200233CCC /* GithubFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				8CC526152B4BF12C00D9CC43 /* Utilities */,
 				8CD7A3302B4A974700233CCC /* Managers */,
 				8CD7A32B2B4A8C9000233CCC /* Model */,
 				8CD7A3292B4A7FB200233CCC /* Extensions */,
@@ -222,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CD7A3142B4814C700233CCC /* FavoritesListViewController.swift in Sources */,
+				8CC526172B4BF13D00D9CC43 /* ErrorMessage.swift in Sources */,
 				8CD7A32D2B4A8C9F00233CCC /* Follower.swift in Sources */,
 				8CD7A3262B4A774300233CCC /* UIViewController+Ext.swift in Sources */,
 				8CD7A3022B456FF200233CCC /* FollowersListViewController.swift in Sources */,
