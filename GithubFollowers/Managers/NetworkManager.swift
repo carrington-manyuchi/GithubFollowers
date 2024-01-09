@@ -5,12 +5,13 @@
 //  Created by DA MAC M1 157 on 2024/01/07.
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
     // End of part one
     static let shared = NetworkManager()
-    let baseURL = "https://api.github.com/users/"
+    private let baseURL = "https://api.github.com/users/"
+    let cache = NSCache<NSString, UIImage>()
     
     private init() {}
     
