@@ -11,6 +11,7 @@ class GFItemInfoViewController: UIViewController {
     
     let stackView: UIStackView = {
         let stackView =  UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .equalSpacing
         stackView.axis = .horizontal
         return stackView
@@ -19,7 +20,8 @@ class GFItemInfoViewController: UIViewController {
     let itemInfoViewOne = GFItemInfoView()
     let itemInfoViewTwo = GFItemInfoView()
     let actionButton = GFButton()
-        
+    
+    weak var delegate: UserInfoVCDelegate!
     var user: User!
     
     init(user: User!) {
@@ -36,12 +38,19 @@ class GFItemInfoViewController: UIViewController {
         view.backgroundColor = .systemBackground
         confireBackgroundView()
         configureConstraints()
+        configureActionButton()
     }
     
     private func confireBackgroundView() {
         view.layer.cornerRadius = 18
         view.backgroundColor = .secondarySystemBackground
     }
+    
+    private func configureActionButton() {
+        actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func actionButtonTapped() {}
     
     private func configureConstraints() {
         view.addSubview(stackView)

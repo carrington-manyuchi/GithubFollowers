@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FollowerListVCDelegate: AnyObject {
+    func didRequestFollowers(for username: String)
+}
+
 class FollowersListViewController: UIViewController {
     
     enum Section {
@@ -30,7 +34,6 @@ class FollowersListViewController: UIViewController {
         configureCollectionView()
         configureDataSource()
         configureSearchController()
-
     }
     
     func getFollowers(username: String, page: Int) {
@@ -42,6 +45,7 @@ class FollowersListViewController: UIViewController {
             case .success(let followers):
                 if followers.count < 100 { self.hasMoreFollowers = false }
                 self.followers.append(contentsOf: followers)
+                dismissLoadingView()
                 
                 if self.followers.isEmpty {
                     let message = "This user doesnt have any followers. Go follow them."
@@ -49,7 +53,6 @@ class FollowersListViewController: UIViewController {
                         self.showEmptyStateView(with: message, in: self.view)
                         return
                     }
-                    
                 }
                 
                 self.updateData(on: self.followers)
@@ -105,8 +108,6 @@ class FollowersListViewController: UIViewController {
 
 }
 
-
-
 extension FollowersListViewController: UICollectionViewDelegate {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -127,6 +128,9 @@ extension FollowersListViewController: UICollectionViewDelegate {
         
         let destVC = UserInfoViewController()
         destVC.username = follower.login
+        
+        destVC.delegate = self
+        
         let navController = UINavigationController(rootViewController: destVC)
         navController.modalPresentationStyle = .fullScreen
         present(navController, animated: true )
@@ -134,7 +138,6 @@ extension FollowersListViewController: UICollectionViewDelegate {
     }
     
 }
-
 
 extension FollowersListViewController: UISearchResultsUpdating, UISearchBarDelegate {
     
@@ -149,4 +152,19 @@ extension FollowersListViewController: UISearchResultsUpdating, UISearchBarDeleg
         updateData(on: followers)
         isSearching = false
     }
+}
+
+extension FollowersListViewController: FollowerListVCDelegate {
+    func didRequestFollowers(for username: String) {
+        // get followers for that user
+        self.username = username
+        title = username
+        followers.removeAll()
+        page = 1
+        filteredFollowers.removeAll()
+        collectionView.setContentOffset(.zero, animated: true)
+        getFollowers(username: username, page: page)
+    }
+    
+    
 }
