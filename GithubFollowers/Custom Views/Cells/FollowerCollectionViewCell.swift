@@ -10,11 +10,12 @@ import UIKit
 class FollowerCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "FollowerCollectionViewCell"
-    let padding: CGFloat = 2
-    
     let avatarImageView = GFAvatarImageView(frame: .zero)
     let usernameLabel = GFTitleLabel(textAlignment: .center, fontSize: 16)
 
+    let padding: CGFloat = 2
+
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()

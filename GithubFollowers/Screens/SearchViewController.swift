@@ -27,6 +27,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         configureViews()
         createDismissKeyboardTapGesture()
+        title = "Search"
     }
     
     override func viewWillAppear(_ animated: Bool) {
