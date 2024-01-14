@@ -57,4 +57,5 @@ class FavoriteTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate(usernameLabelConstraints)
     }
     
+    
 }
