@@ -23,18 +23,25 @@ class FavoriteTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func set(favorite: Follower) {
+        usernameLabel.text = favorite.login
+        avatarImageView.downloadImage(from: favorite.avatarUrl)
+    }
+    
     private func configureAddSubViews() {
         addSubview(avatarImageView)
         addSubview(usernameLabel)
         accessoryType = .disclosureIndicator
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        usernameLabel.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func configureConstraints() {
         let padding: CGFloat = 12
+        
         let avatarImageViewConstraints = [
             avatarImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
-            avatarImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: padding),
             avatarImageView.heightAnchor.constraint(equalToConstant: 60),
             avatarImageView.widthAnchor.constraint(equalToConstant: 60)
         ]
